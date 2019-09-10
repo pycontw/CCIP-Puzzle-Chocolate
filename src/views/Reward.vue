@@ -11,8 +11,7 @@
         @error="onScanFail"
       ></qrcode-reader>
     </template>
-    <template v-if="loggedIn">
-      <h2 role="got-points">{{ $t('has_got_points', {points: gotPoints}) }}</h2>
+    <template v-if="playerPubToken !== null">
       <SquareGrid :booths="boothList" :userStamps="stamps" :showAnchor="true" />
       <div role="game-description" v-if="description($i18n.locale).length > 0">
         <template v-for="(line, index) in description($i18n.locale).split('\n')">
