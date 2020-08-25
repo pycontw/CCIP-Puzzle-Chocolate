@@ -3,7 +3,7 @@
     <h1 role="GameName">{{ $t('reward') }}</h1>
     <template v-if="showScanner">
       <qrcode-reader
-        :enable="showScanner"
+        v-if="showScanner"
         :noResult="true"
         title
         :subTitle="$t('scan_qrcode')"
@@ -11,7 +11,8 @@
         @error="onScanFail"
       ></qrcode-reader>
     </template>
-    <template v-if="playerPubToken !== null">
+    <template v-if="loggedIn">
+      <h2 role="got-points">{{ $t('has_got_points', {points: gotPoints}) }}</h2>
       <SquareGrid :booths="boothList" :userStamps="stamps" :showAnchor="true" />
       <div role="game-description" v-if="description($i18n.locale).length > 0">
         <template v-for="(line, index) in description($i18n.locale).split('\n')">
@@ -34,7 +35,7 @@ import { mapGetters } from 'vuex'
 export default {
   name: 'Reward',
   computed: {
-    ...mapGetters(['description', 'booths', 'stamps', 'playerPubToken', 'errorMessage', 'showErrorMessage']),
+    ...mapGetters(['description', 'booths', 'stamps', 'playerPubToken', 'errorMessage', 'showErrorMessage', 'loggedIn']),
     showScanner () {
       return this.playerPubToken === null
     },
