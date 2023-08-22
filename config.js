@@ -1,3 +1,3 @@
 module.exports = {
-  spreadsheetKey: '1yfN0lD5WVMRmZpdHXvEFxyNYyyFoAa3jusftnnZRCmY',
+  spreadsheetKey: '1CgD5P0pi2Agbtfw1Mvg-12sWXXJNpDh7nt_i_KOuNoo',
 };
