@@ -1,5 +1,5 @@
 {
-  "API_URL": "https://pycon.opass.app/",
+  "API_URL": "https://opass.pycon.tw/",
   "configURL": "https://game.pycon.tw/config.json",
   "defaultMode": ""
 }
